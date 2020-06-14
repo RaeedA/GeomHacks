@@ -17,6 +17,6 @@ public class GroSpaceApplication {
 	@GetMapping("/validate")
 	public boolean validatePlant(@RequestParam(value = "plant", defaultValue = "") String plant)
 	{
-	    return false;
+	    return false; 
 	}
 }

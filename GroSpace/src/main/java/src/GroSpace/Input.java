@@ -65,6 +65,6 @@ public class Input {
 		}
 		
 		public boolean isPlant(String plant) {
-			return !(plant.equalsIgnoreCase("arugula") || plant.equalsIgnoreCase("kale") || plant.equalsIgnoreCase("lettuce"));
+			return plant.equalsIgnoreCase("arugula") || plant.equalsIgnoreCase("kale") || plant.equalsIgnoreCase("lettuce");
 		}
 }

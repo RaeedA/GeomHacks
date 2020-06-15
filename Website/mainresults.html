@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <style type="text/css">
-	
+	.display
+	{
+		font-family: Trebuchet MS;
+		color: LimeGreen;
+		font-size: 50px;
+	}
+	.info
+	{
+		font-family: Trebuchet MS;
+		color: #4d4d4d;
+		font-size:30px;
+	}
 </style>
 
 <html>
 <body>
 
 	<div style="display: flex">
-		<div>
-			
+		<div style="margin-right: auto; margin-left:300px">
+			<h1 class = "display" style="margin-top: 130px">Diagram:</h1>
+			<image id="image" alt="Diagram" style="width: 150%; height: 70%; margin-top: auto; margin-left: -150px; margin-right: 150px"></image>
+		</div>
+		<div style="margin-top: 100px; margin-right: auto; margin-left: -50px">
+			<h1 class="display">Total Modules:</h1>
+			<h3 class="info" id="plants"></h3>
+			<h1 class= "display">Total Electricity:</h1>
+			<h3 class="info" id="electricity"></h3>
+			<h1 class = "display">Total Water:</h1>
+			<h3 class="info" id="water"></h3>
 		</div>
 	</div>
 

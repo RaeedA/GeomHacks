@@ -34,7 +34,18 @@ let confirm = function()
 		switch(errors)
 		{
 			case 0:
-				//STUFF
+				let xhr1 = new XMLHttpRequest;
+   				let link1 = "http://127.0.0.1:8080/create?width="+width+"&length="+length+"&height="+height;
+   				xhr1.open('GET', link1, true)
+				xhr1.onload = function() 
+		    	{
+		    		if(this.status === 200)
+		    		{
+		    			window.location.href="mainresults.html"
+		    		}
+				}
+
+				xhr1.send();
 				break;
 			case 1:
 				alert("Invalid dimensions!");

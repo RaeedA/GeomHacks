@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 public class Input {
 	
 	static Scanner input = new Scanner(System.in);
+	
 		public static void main(String [] args) {
 		System.out.println("GroSpace by Luca and Raeed, Geomhacks Submission 2020");
 		System.out.println("--------------\n");
@@ -32,6 +33,7 @@ public class Input {
 		}
 		calculate(length, width, height, plant, moduleCalculator());
 	}
+		
 		public static void calculate(float length, float width, float height, String plant, int modules) {
 			System.out.println(moduleCalculator() + " Modules Will Fit in Your Space!");
 			System.out.println("\nYour Facility Will Use " + WhperMonth(length, width, modules) + " Watt Hours Per Month");

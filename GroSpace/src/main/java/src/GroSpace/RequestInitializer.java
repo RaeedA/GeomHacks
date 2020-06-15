@@ -4,6 +4,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class RequestInitializer {
@@ -11,7 +12,7 @@ public class RequestInitializer {
 	static JSONObject APIResponse;
 	static Scanner input = new Scanner(System.in);
 	
-	public static void main(String [] args) {
+	/*public static void main(String [] args) {
 	System.out.println("GroSpace by Luca and Raeed, Geomhacks Submission 2020");
 	System.out.println("--------------\n");
 
@@ -34,7 +35,7 @@ public class RequestInitializer {
 		plant = input.next();
 	}
 	calculate(length, width, height, plant, moduleCalculator());
-	}
+	}*/
 	
     public RequestInitializer(int length, int width, int height) {
         Request r = new Request();
@@ -46,33 +47,39 @@ public class RequestInitializer {
 		return (String) APIResponse.get("svgs");
 	}
     
-    public int moduleCalculator() {
-    	int leftovers = (int) APIResponse.get("lenLeftovers");
-    	return leftovers - 1000;
+    public String getImage()
+    {
+        return (String)( (JSONObject)( (JSONArray)APIResponse.get( "images" ) ).get( 0 ) ).get("data");
     }
-
-    public static String WhperMonth(float width, float length, int modules) {
+    
+    public long moduleCalculator() {
+    	long leftovers = (long) APIResponse.get("lenLeftovers");
+    	return 10000-leftovers;
+    }
+    
+    
+    public String WhperMonth() {
     	DecimalFormat df = new DecimalFormat("##.##");
     	df.setRoundingMode(RoundingMode.DOWN);
-    	double result = (((modules * ((width*12) * (length*12))) / 1550.0) * 3500.0) / 12.0;
+    	double result = (((moduleCalculator() * ((4*12) * (3*12))) / 1550.0) * 3500.0) / 12.0;
     	return df.format(result);
     }
 
-    public static String waterPerMonth(float width, float length, int modules) {
+    public String waterPerMonth() {
     	DecimalFormat df = new DecimalFormat("##.##");
     	df.setRoundingMode(RoundingMode.DOWN);
-    	double result = (((modules * ((width*12) * (length*12))) / 1550.0) * 180.0) / 3.785;
+    	double result = (((moduleCalculator() * ((4*12) * (3*12))) / 1550.0) * 180.0) / 3.785;
     	return df.format(result);
     	
     }
 
-    public boolean isPlant(String plant) {
+    public static boolean isPlant(String plant) {
     	return plant.equalsIgnoreCase("arugula") || plant.equalsIgnoreCase("kale") || plant.equalsIgnoreCase("lettuce");
     	}
     
-    public static void calculate(float length, float width, float height, String plant, int modules) {
+    /*public static void calculate(float length, float width, float height, String plant, int modules) {
     	System.out.println(moduleCalculator() + " Modules Will Fit in Your Space!");
     	System.out.println("\nYour Facility Will Use " + WhperMonth(length, width, modules) + " Watt Hours Per Month");
     	System.out.println("\nYour Facility Will Use " + waterPerMonth(length, width, modules) + " Gallons of Water Per Month.");
-    }
+    }*/
 }
